@@ -5,64 +5,125 @@
   box-sizing: border-box;
   font-family: "Kumbh Sans";
 }
+:root {
+  --clr-primary: hsl(185, 75%, 39%);
+  --clr-secundary: hsl(227, 10%, 46%);
+  --clr-text-primary: hsl(229, 23%, 23%);
+  --clr-text-secundary: hsl(0, 0%, 59%);
+}
 body {
   display: grid;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh;
+  background: var(--clr-primary);
 }
 .ccard {
-  justify-self: center;
+  animation: ress ease-out 1s;
   width: 350px;
   height: 375px;
   border-radius: 15px;
   overflow: hidden;
+  background-color: #ffffff;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+
 .ccard__image-bg {
   width: 100%;
 }
 
 .ccard__image-profile {
   position: absolute;
-  margin-left: 125px;
-  margin-top: -50px;
-  border: 6px solid white;
+  margin-left: 120px;
+  margin-top: -58px;
+  border: 6px solid #ffffff;
   border-radius: 50%;
   align-self: baseline;
   justify-self: flex-start;
+  transition: 1s;
+}
+.ccard__image-profile:hover {
+  transform: scale(1.1);
 }
 .ccard__profile {
   display: flex;
   flex-direction: column;
   height: 146px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid hsl(227, 10%, 46%, 0.3);
 }
 .ccard__profile-title {
-  margin-top: 76px;
+  font-size: 1.15rem;
+  margin-top: 68px;
   align-self: center;
+  color: var(--clr-text-primary);
+  font-weight: 700;
 }
 .ccard__profile-paragh {
   align-self: center;
-  color: gray;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--clr-text-secundary);
 }
 .ccard__profile-title-sub {
-  color: gray;
+  margin-left: 4px;
+  font-weight: 400;
+  color: var(--clr-text-secundary);
 }
 .ccard__description {
   display: flex;
   justify-content: space-between;
-  padding: 15px 45px;
+  padding: 20px 50px;
 }
 .ccard__description-box {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+.ccard__description-box-title {
+  font-size: 1.1rem;
+}
+.ccard__description-box-paragh {
+  margin-top: 5px;
+  font-size: 0.775rem;
+  color: var(--clr-text-secundary);
+}
+.pattern {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+.pattern__top {
+  right: 50%;
+  bottom: 43%;
+  position: fixed;
+  animation: ress ease-in-out 0.5s;
+}
 
+.pattern__bottom {
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  animation: ress ease-in-out 0.5s;
+}
 .attribution {
+  color: var(--clr-text-primary);
   position: absolute;
   align-self: end;
   justify-self: center;
+}
+.attribution a {
+  color: #fffaf0;
+  text-decoration: none;
+}
+
+@keyframes ress {
+  0% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
